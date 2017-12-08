@@ -5,46 +5,44 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.github.omenstudio.weblibrary.entity.Book;
+import com.github.omenstudio.weblibrary.entity.Article;
+import com.github.omenstudio.weblibrary.repository.ArticleRepository;
 import com.github.omenstudio.weblibrary.repository.AuthorRepository;
-import com.github.omenstudio.weblibrary.repository.BookRepository;
-import com.github.omenstudio.weblibrary.repository.PublisherRepository;
+import com.github.omenstudio.weblibrary.repository.MagazineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 
-public class BookJsonDeserializer extends JsonDeserializer<Book> {
+public class ArticleJsonDeserializer extends JsonDeserializer<Article> {
 
     @Autowired
-    BookRepository bookRepository;
+    ArticleRepository articleRepository;
 
     @Autowired
-    PublisherRepository publisherRepository;
+    MagazineRepository magazineRepository;
 
     @Autowired
     AuthorRepository authorRepository;
 
     @Override
-    public Book deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-        Book book = new Book();
+    public Article deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+        Article book = new Article();
 
         JsonNode node = jp.getCodec().readTree(jp);
 
         book.setTitle(getText(node, "title"));
-        book.setOriginalTitle(getText(node, "originalTitle"));
-        book.setDescription(getText(node, "description"));
-        book.setCopyrightYear(getInt(node, "copyrightYear"));
-        book.setBookEdition(getInt(node, "bookEdition"));
-        book.setNumberOfPages(getInt(node, "numberOfPages"));
-        book.setIsbn(getText(node, "isbn"));
+        book.setAnnotation(getText(node, "annotation"));
+        book.setPageStart(getText(node, "pageStart"));
+        book.setPageEnd(getText(node, "pageEnd"));
+        book.setWordCount(getInt(node, "wordCount"));
 
-        Long authorId = getHypermediaIdHack(node, "author");
+        Long authorId = getHypermediaIdHack(node, "authors");
         if (authorId != null)
-            book.setAuthor(authorRepository.findOne(authorId));
+            book.addAuthor(authorRepository.findOne(authorId));
 
-        Long publisherId = getHypermediaIdHack(node, "publisher");
-        if (publisherId != null)
-            book.setPublisher(publisherRepository.findOne(publisherId));
+        Long magazineId = getHypermediaIdHack(node, "magazine");
+        if (magazineId != null)
+            book.setMagazine(magazineRepository.findOne(magazineId));
 
         return book;
     }
@@ -90,4 +88,6 @@ public class BookJsonDeserializer extends JsonDeserializer<Book> {
 
         return null;
     }
+
+
 }

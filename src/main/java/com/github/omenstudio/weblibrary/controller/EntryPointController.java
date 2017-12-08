@@ -16,9 +16,9 @@ public class EntryPointController {
         res.addProperty("@context", "/api/contexts/EntryPoint");
         res.addProperty("@id", "/api/");
         res.addProperty("@type", "EntryPoint");
-        res.addProperty("books", "/api/books/");
+        res.addProperty("articles", "/api/articles/");
         res.addProperty("authors", "/api/authors/");
-        res.addProperty("publishers", "/api/publishers/");
+        res.addProperty("magazines", "/api/magazines/");
 
         return res;
     }

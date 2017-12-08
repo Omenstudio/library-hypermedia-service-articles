@@ -27,21 +27,16 @@ public class Author {
     @Column
     private Date birthDate;
 
-    @HydraField("http://schema.org/birthPlace")
-    @Column
-    private String birthPlace;
-
     @JsonExclude
-    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "authors", cascade = CascadeType.ALL)
     @Lazy
-    private List<Book> books;
+    private List<Article> articles;
 
     public Author() { }
 
-    public Author(String name, Date birthDate, String birthPlace) {
+    public Author(String name, Date birthDate) {
         this.name = name;
         if (birthDate != null) this.birthDate = birthDate;
-        if (birthPlace != null) this.birthPlace = birthPlace;
     }
 
     public Long getId() {
@@ -68,12 +63,5 @@ public class Author {
         this.birthDate = birthDate;
     }
 
-    public String getBirthPlace() {
-        return birthPlace;
-    }
-
-    public void setBirthPlace(String birthPlace) {
-        this.birthPlace = birthPlace;
-    }
 
 }

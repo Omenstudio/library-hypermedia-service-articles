@@ -1,8 +1,0 @@
-package com.github.omenstudio.weblibrary.repository;
-
-import com.github.omenstudio.weblibrary.entity.Publisher;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface PublisherRepository extends JpaRepository<Publisher, Long> {
-
-}
