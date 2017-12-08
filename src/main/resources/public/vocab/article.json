@@ -1,0 +1,93 @@
+{
+  "@id": "http://schema.org/Article",
+  "@type": "hydra:Class",
+  "hydra:title": "Article",
+  "hydra:description": null,
+  "supportedOperation": [
+    {
+      "@id": "_:article_replace",
+      "@type": "http://schema.org/UpdateAction",
+      "method": "PUT",
+      "label": "Replaces an existing Article",
+      "description": null,
+      "expects": "http://schema.org/Article",
+      "returns": "http://schema.org/Article",
+      "statusCodes": [
+        {
+          "code": 404,
+          "description": "If the Article entity wasn't found."
+        }
+      ]
+    },
+    {
+      "@id": "_:article_delete",
+      "@type": "http://schema.org/DeleteAction",
+      "method": "DELETE",
+      "label": "Deletes a Article entity",
+      "description": null,
+      "expects": null,
+      "returns": "http://www.w3.org/2002/07/owl#Nothing",
+      "statusCodes": []
+    },
+    {
+      "@id": "_:article_retrieve",
+      "@type": "hydra:Operation",
+      "method": "GET",
+      "label": "Retrieves a Article entity",
+      "description": null,
+      "expects": null,
+      "returns": "http://schema.org/Article",
+      "statusCodes": []
+    }
+  ],
+  "supportedProperty": [
+    {
+      "property": "http://schema.org/headline",
+      "hydra:title": "title",
+      "hydra:description": "The article's title",
+      "required": true,
+      "readonly": false,
+      "writeonly": false
+    },
+    {
+      "property": "http://schema.org/description",
+      "hydra:title": "annotation",
+      "hydra:description": "Short annotation of the article",
+      "required": false,
+      "readonly": false,
+      "writeonly": false
+    },
+    {
+      "property": "http://schema.org/pageStart",
+      "hydra:title": "pageStart",
+      "hydra:description": "The page on which the work starts; for example 135 or xiii.",
+      "required": false,
+      "readonly": false,
+      "writeonly": false
+    },
+    {
+      "property": "http://schema.org/pageEnd",
+      "hydra:title": "pageEnd",
+      "hydra:description": "The page on which the work ends; for example 138 or xv.",
+      "required": false,
+      "readonly": false,
+      "writeonly": false
+    },
+    {
+      "property": "http://schema.org/wordCount",
+      "hydra:title": "wordCount",
+      "hydra:description": "The number of words in the text of the Article.",
+      "required": false,
+      "readonly": false,
+      "writeonly": false
+    },
+    {
+      "property": "http://schema.org/Book",
+      "hydra:title": "magazine",
+      "hydra:description": "Magazine id of the article.",
+      "required": false,
+      "readonly": false,
+      "writeonly": false
+    }
+  ]
+}

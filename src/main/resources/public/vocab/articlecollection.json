@@ -1,33 +1,33 @@
 {
-  "@id": "vocab:PublisherCollection",
+  "@id": "vocab:ArticleCollection",
   "@type": "hydra:Class",
   "subClassOf": "http://www.w3.org/ns/hydra/core#Collection",
-  "label": "PublisherCollection",
-  "description": "A collection of publishers",
+  "label": "ArticleCollection",
+  "description": "A collection of articles",
   "supportedOperation": [
     {
-      "@id": "_:publisher_create",
+      "@id": "_:article_create",
       "@type": "http://schema.org/AddAction",
       "method": "POST",
-      "label": "Creates a new Publisher entity",
+      "label": "Creates a new Article entity",
       "description": null,
-      "expects": "http://schema.org/Publisher",
-      "returns": "http://schema.org/Publisher",
+      "expects": "http://schema.org/Article",
+      "returns": "http://schema.org/Article",
       "statusCodes": [
         {
           "code": 201,
-          "description": "If the Publisher entity was created successfully."
+          "description": "If the Article entity was created successfully."
         }
       ]
     },
     {
-      "@id": "_:publisher_collection_retrieve",
+      "@id": "_:article_collection_retrieve",
       "@type": "hydra:Operation",
       "method": "GET",
-      "label": "Retrieves all Publisher entities",
+      "label": "Retrieves all Article entities",
       "description": null,
       "expects": null,
-      "returns": "vocab:PublisherCollection",
+      "returns": "vocab:ArticleCollection",
       "statusCodes": []
     }
   ],
@@ -35,7 +35,7 @@
     {
       "property": "http://www.w3.org/ns/hydra/core#member",
       "hydra:title": "members",
-      "hydra:description": "The publishers",
+      "hydra:description": "The articles",
       "required": null,
       "readonly": false,
       "writeonly": false

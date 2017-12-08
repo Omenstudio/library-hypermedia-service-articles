@@ -1,33 +1,33 @@
 {
-  "@id": "vocab:BookCollection",
+  "@id": "vocab:MagazineCollection",
   "@type": "hydra:Class",
   "subClassOf": "http://www.w3.org/ns/hydra/core#Collection",
-  "label": "BookCollection",
-  "description": "A collection of books",
+  "label": "MagazineCollection",
+  "description": "A collection of magazines",
   "supportedOperation": [
     {
-      "@id": "_:book_create",
+      "@id": "_:magazine_create",
       "@type": "http://schema.org/AddAction",
       "method": "POST",
-      "label": "Creates a new Book entity",
+      "label": "Creates a new Magazine entity",
       "description": null,
       "expects": "http://schema.org/Book",
       "returns": "http://schema.org/Book",
       "statusCodes": [
         {
           "code": 201,
-          "description": "If the Book entity was created successfully."
+          "description": "If the Magazine entity was created successfully."
         }
       ]
     },
     {
-      "@id": "_:book_collection_retrieve",
+      "@id": "_:magazine_collection_retrieve",
       "@type": "hydra:Operation",
       "method": "GET",
-      "label": "Retrieves all Book entities",
+      "label": "Retrieves all Magazine entities",
       "description": null,
       "expects": null,
-      "returns": "vocab:BookCollection",
+      "returns": "vocab:MagazineCollection",
       "statusCodes": []
     }
   ],
@@ -35,7 +35,7 @@
     {
       "property": "http://www.w3.org/ns/hydra/core#member",
       "hydra:title": "members",
-      "hydra:description": "The books",
+      "hydra:description": "The magazines",
       "required": null,
       "readonly": false,
       "writeonly": false

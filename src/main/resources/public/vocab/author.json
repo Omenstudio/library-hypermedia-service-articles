@@ -56,14 +56,6 @@
       "required": false,
       "readonly": false,
       "writeonly": false
-    },
-    {
-      "property": "http://schema.org/birthPlace",
-      "hydra:title": "birthPlace",
-      "hydra:description": "The place where the author was born.",
-      "required": false,
-      "readonly": false,
-      "writeonly": false
     }
   ]
 }

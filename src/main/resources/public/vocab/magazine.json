@@ -1,39 +1,39 @@
 {
   "@id": "http://schema.org/Book",
   "@type": "hydra:Class",
-  "hydra:title": "Book",
+  "hydra:title": "Magazine",
   "hydra:description": null,
   "supportedOperation": [
     {
-      "@id": "_:book_replace",
+      "@id": "_:magazine_replace",
       "@type": "http://schema.org/UpdateAction",
       "method": "PUT",
-      "label": "Replaces an existing Book entity",
+      "label": "Replaces an existing Magazine",
       "description": null,
       "expects": "http://schema.org/Book",
       "returns": "http://schema.org/Book",
       "statusCodes": [
         {
           "code": 404,
-          "description": "If the Book entity wasn't found."
+          "description": "If the Magazine entity wasn't found."
         }
       ]
     },
     {
-      "@id": "_:book_delete",
+      "@id": "_:magazine_delete",
       "@type": "http://schema.org/DeleteAction",
       "method": "DELETE",
-      "label": "Deletes a Book entity",
+      "label": "Deletes a Magazine entity",
       "description": null,
       "expects": null,
       "returns": "http://www.w3.org/2002/07/owl#Nothing",
       "statusCodes": []
     },
     {
-      "@id": "_:book_retrieve",
+      "@id": "_:magazine_retrieve",
       "@type": "hydra:Operation",
       "method": "GET",
-      "label": "Retrieves a Book entity",
+      "label": "Retrieves a Magazine entity",
       "description": null,
       "expects": null,
       "returns": "http://schema.org/Book",
@@ -44,39 +44,23 @@
     {
       "property": "http://schema.org/headline",
       "hydra:title": "title",
-      "hydra:description": "The book's title",
+      "hydra:description": "The magazine's title",
       "required": true,
-      "readonly": false,
-      "writeonly": false
-    },
-    {
-      "property": "http://schema.org/alternativeHeadline",
-      "hydra:title": "originalTitle",
-      "hydra:description": "The book's title in original language",
-      "required": false,
       "readonly": false,
       "writeonly": false
     },
     {
       "property": "http://schema.org/description",
       "hydra:title": "description",
-      "hydra:description": "Description of the book",
-      "required": false,
-      "readonly": false,
-      "writeonly": false
-    },
-    {
-      "property": "http://schema.org/copyrightYear",
-      "hydra:title": "copyrightYear",
-      "hydra:description": "Year of first book publication",
+      "hydra:description": "Short magazine description",
       "required": false,
       "readonly": false,
       "writeonly": false
     },
     {
       "property": "http://schema.org/bookEdition",
-      "hydra:title": "bookEdition",
-      "hydra:description": "The edition of the book.",
+      "hydra:title": "edition",
+      "hydra:description": "The magazine's ordered number (edition №)",
       "required": false,
       "readonly": false,
       "writeonly": false
@@ -84,7 +68,7 @@
     {
       "property": "http://schema.org/numberOfPages",
       "hydra:title": "numberOfPages",
-      "hydra:description": "The book's page count.",
+      "hydra:description": "Current magazine's edition page count",
       "required": false,
       "readonly": false,
       "writeonly": false
@@ -92,23 +76,7 @@
     {
       "property": "http://schema.org/isbn",
       "hydra:title": "isbn",
-      "hydra:description": "The ISBN of the book.",
-      "required": false,
-      "readonly": false,
-      "writeonly": false
-    },
-    {
-      "property": "http://schema.org/Person",
-      "hydra:title": "author",
-      "hydra:description": "Author id of the book.",
-      "required": false,
-      "readonly": false,
-      "writeonly": false
-    },
-    {
-      "property": "http://schema.org/Publisher",
-      "hydra:title": "publisher",
-      "hydra:description": "Publisher id of the book.",
+      "hydra:description": "The ISBN of this magazine's edition.",
       "required": false,
       "readonly": false,
       "writeonly": false

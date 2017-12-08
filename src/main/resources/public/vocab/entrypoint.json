@@ -19,27 +19,27 @@
   "supportedProperty": [
     {
       "property": {
-        "@id": "vocab:EntryPoint/books",
+        "@id": "vocab:EntryPoint/articles",
         "@type": "hydra:Link",
-        "label": "books",
-        "description": "The books collection",
+        "label": "articles",
+        "description": "The articles collection",
         "domain": "vocab:EntryPoint",
-        "range": "vocab:BookCollection",
+        "range": "vocab:ArticleCollection",
         "supportedOperation": [
           {
-            "@id": "_:book_collection_retrieve",
+            "@id": "_:article_collection_retrieve",
             "@type": "hydra:Operation",
             "method": "GET",
-            "label": "Retrieves all Book entities",
+            "label": "Retrieves all Article entities",
             "description": null,
             "expects": null,
-            "returns": "vocab:BookCollection",
+            "returns": "vocab:ArticleCollection",
             "statusCodes": []
           }
         ]
       },
-      "hydra:title": "books",
-      "hydra:description": "The books collection",
+      "hydra:title": "articles",
+      "hydra:description": "The articles collection",
       "required": null,
       "readonly": true,
       "writeonly": false
@@ -73,27 +73,27 @@
     },
     {
       "property": {
-        "@id": "vocab:EntryPoint/publishers",
+        "@id": "vocab:EntryPoint/magazines",
         "@type": "hydra:Link",
-        "label": "publishers",
-        "description": "The Publishers list",
+        "label": "magazines",
+        "description": "The Magazines list",
         "domain": "vocab:EntryPoint",
-        "range": "vocab:PublisherCollection",
+        "range": "vocab:MagazineCollection",
         "supportedOperation": [
           {
-            "@id": "_:publisher_collection_retrieve",
+            "@id": "_:magazine_collection_retrieve",
             "@type": "hydra:Operation",
             "method": "GET",
-            "label": "Retrieves all Publisher entities",
+            "label": "Retrieves all Magazine entities",
             "description": null,
             "expects": null,
-            "returns": "vocab:PublisherCollection",
+            "returns": "vocab:MagazineCollection",
             "statusCodes": []
           }
         ]
       },
-      "hydra:title": "publishers",
-      "hydra:description": "The publishers collection",
+      "hydra:title": "magazines",
+      "hydra:description": "The magazines collection",
       "required": null,
       "readonly": true,
       "writeonly": false
