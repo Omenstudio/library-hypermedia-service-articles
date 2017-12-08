@@ -28,7 +28,7 @@ public class Author {
     private Date birthDate;
 
     @JsonExclude
-    @OneToMany(mappedBy = "authors", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "authors", cascade = CascadeType.ALL)
     @Lazy
     private List<Article> articles;
 

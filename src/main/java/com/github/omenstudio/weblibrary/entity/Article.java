@@ -29,7 +29,7 @@ public class Article {
     private String title;
 
     @HydraField("http://schema.org/description")
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String annotation;
 
     @HydraField("http://schema.org/pageStart")
