@@ -170,14 +170,14 @@ public class HydraRequestHandler {
         resultJson.addProperty("@context", HydraUrlResolver.getApiPath() + "/contexts/" + className);
         resultJson.addProperty("@type", className);
 
-        //
+        // For each field, which must be serialized
         for (Field field : entityObject.getClass().getDeclaredFields()) {
             if (field.getDeclaredAnnotation(HydraLink.class) == null)
                 continue;
 
             try {
                 field.setAccessible(true);
-                resultJson.add(field.getName(), serializeLinkToEntity(field.get(entityObject)));
+                resultJson.add(field.getName(), serializeLinkTo(field.get(entityObject)));
             } catch (IllegalAccessException | ClassCastException e) {
                 logger.error("#serializeEntityFully: " + e.toString());
             }
@@ -187,6 +187,24 @@ public class HydraRequestHandler {
         return resultJson.toString();
     }
 
+    private static JsonElement serializeLinkTo(Object object) {
+        if (object instanceof Collection) {
+            return serializeLinkToCollection(((Collection) object));
+        }
+
+        return serializeLinkToEntity(object);
+    }
+
+
+    private static JsonElement serializeLinkToCollection(Collection entityCollection) {
+        JsonArray answer = new JsonArray();
+
+        for (Object entity : entityCollection) {
+            answer.add(serializeLinkToEntity(entity));
+        }
+
+        return answer;
+    }
 
     private static JsonObject serializeLinkToEntity(Object entityObject) {
         if (entityObject == null)
