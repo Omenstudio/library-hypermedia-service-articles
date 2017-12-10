@@ -9,9 +9,16 @@ import com.github.omenstudio.weblibrary.entity.Article;
 import com.github.omenstudio.weblibrary.repository.ArticleRepository;
 import com.github.omenstudio.weblibrary.repository.AuthorRepository;
 import com.github.omenstudio.weblibrary.repository.MagazineRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class ArticleJsonDeserializer extends JsonDeserializer<Article> {
 
@@ -23,6 +30,8 @@ public class ArticleJsonDeserializer extends JsonDeserializer<Article> {
 
     @Autowired
     AuthorRepository authorRepository;
+
+    private static Logger logger = LoggerFactory.getLogger(ArticleJsonDeserializer.class);
 
     @Override
     public Article deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
@@ -36,11 +45,16 @@ public class ArticleJsonDeserializer extends JsonDeserializer<Article> {
         book.setPageEnd(getText(node, "pageEnd"));
         book.setWordCount(getInt(node, "wordCount"));
 
-        Long authorId = getHypermediaIdHack(node, "authors");
-        if (authorId != null)
-            book.addAuthor(authorRepository.findOne(authorId));
+        getHypermediaIdList(node, "authors").forEach(authorId -> {
+            try {
+                book.addAuthor(authorRepository.findOne(authorId));
+            }
+            catch (Exception e) {
+                logger.error(e.toString());
+            }
+        });
 
-        Long magazineId = getHypermediaIdHack(node, "magazine");
+        Long magazineId = getHypermediaId(node, "magazine");
         if (magazineId != null)
             book.setMagazine(magazineRepository.findOne(magazineId));
 
@@ -70,7 +84,19 @@ public class ArticleJsonDeserializer extends JsonDeserializer<Article> {
         return null;
     }
 
-    private static Long getHypermediaIdHack(JsonNode parent, String title) {
+    private static List<Long> getHypermediaIdList(JsonNode parent, String title) {
+        if (parent.has(title) && !parent.get(title).isNull()) {
+            return Arrays.stream(parent.get(title).asText().split(","))
+                    .map(String::trim)
+                    .map(Long::parseLong)
+                    .filter(Objects::nonNull)
+                    .collect(Collectors.toList());
+        }
+
+        return new ArrayList<>();
+    }
+
+    private static Long getHypermediaId(JsonNode parent, String title) {
         if (parent.has(title) && !parent.get(title).isNull()) {
             String linkStr = parent.get(title).asText().trim();
 

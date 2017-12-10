@@ -82,6 +82,14 @@
       "writeonly": false
     },
     {
+      "property": "vocab:AuthorCollection",
+      "hydra:title": "authors",
+      "hydra:description": "Authors id of the article.",
+      "required": false,
+      "readonly": false,
+      "writeonly": false
+    },
+    {
       "property": "http://schema.org/Book",
       "hydra:title": "magazine",
       "hydra:description": "Magazine id of the article.",
