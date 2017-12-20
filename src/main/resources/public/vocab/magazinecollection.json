@@ -4,6 +4,7 @@
   "subClassOf": "http://www.w3.org/ns/hydra/core#Collection",
   "label": "MagazineCollection",
   "description": "A collection of magazines",
+  "member_of": "http://schema.org/Book",
   "supportedOperation": [
     {
       "@id": "_:magazine_create",

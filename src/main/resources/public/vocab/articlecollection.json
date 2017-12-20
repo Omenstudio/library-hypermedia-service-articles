@@ -4,6 +4,7 @@
   "subClassOf": "http://www.w3.org/ns/hydra/core#Collection",
   "label": "ArticleCollection",
   "description": "A collection of articles",
+  "member_of": "http://schema.org/Article",
   "supportedOperation": [
     {
       "@id": "_:article_create",
