@@ -22,11 +22,13 @@ public class ContextController {
         return new String[] {"articles", "authors", "magazines"};
     }
 
+
     @HydraContextClass
     @HydraGetRequest("Article")
     public Object getArticleContext() {
         return Article.class;
     }
+
 
     @HydraContextCollection
     @HydraGetRequest("ArticleCollection")
@@ -34,22 +36,29 @@ public class ContextController {
         return Article.class;
     }
 
-    @HydraContextCollection
+
+    @HydraContextClass
     @HydraGetRequest("Author")
     public Object getAuthorContext() {
         return Author.class;
     }
 
+
+    @HydraContextCollection
     @HydraGetRequest("AuthorCollection")
     public Object getAuthorCollection() {
         return Author.class;
     }
 
+
+    @HydraContextClass
     @HydraGetRequest("Magazine")
     public Object getMagazineContext() {
         return Magazine.class;
     }
 
+
+    @HydraContextCollection
     @HydraGetRequest("MagazineCollection")
     public Object getMagazineCollection() {
         return Magazine.class;
