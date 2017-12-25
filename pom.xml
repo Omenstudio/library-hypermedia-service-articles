@@ -64,12 +64,29 @@
             <artifactId>hibernate-entitymanager</artifactId>
         </dependency>
 
-        <!-- My custom microframework for work with hypermedia driven API with HYDRA vocabs -->
+        <!-- Lombok, because Im lazy -->
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
-            <groupId>com.github.Omenstudio</groupId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.18</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+
+        <!-- My custom microframework for work with hypermedia driven API with HYDRA vocabs -->
+        <!--<dependency>-->
+            <!--<groupId>com.github.Omenstudio</groupId>-->
+            <!--<artifactId>hydra-microframework</artifactId>-->
+            <!--<version>1.0</version>-->
+        <!--</dependency>-->
+        <!-- Uncomment for local framework sources usage -->
+        <dependency>
+            <groupId>com.github.omenstudio.hydra</groupId>
             <artifactId>hydra-microframework</artifactId>
             <version>1.0</version>
-            <!--<scope>compile</scope>-->
+            <scope>compile</scope>
         </dependency>
 
     </dependencies>
