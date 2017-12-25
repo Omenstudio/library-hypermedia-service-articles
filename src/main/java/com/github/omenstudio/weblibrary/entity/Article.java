@@ -2,10 +2,10 @@ package com.github.omenstudio.weblibrary.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.github.omenstudio.hydraback.annotation.HydraEntity;
-import com.github.omenstudio.hydraback.annotation.HydraField;
-import com.github.omenstudio.hydraback.annotation.HydraLink;
-import com.github.omenstudio.hydraback.annotation.JsonExclude;
+import com.github.omenstudio.hydra.annotation.HydraEntity;
+import com.github.omenstudio.hydra.annotation.HydraField;
+import com.github.omenstudio.hydra.annotation.HydraLink;
+import com.github.omenstudio.hydra.annotation.JsonExclude;
 import com.github.omenstudio.weblibrary.utils.ArticleJsonDeserializer;
 
 import javax.persistence.*;

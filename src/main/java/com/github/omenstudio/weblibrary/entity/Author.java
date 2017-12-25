@@ -1,8 +1,8 @@
 package com.github.omenstudio.weblibrary.entity;
 
-import com.github.omenstudio.hydraback.annotation.HydraEntity;
-import com.github.omenstudio.hydraback.annotation.HydraField;
-import com.github.omenstudio.hydraback.annotation.JsonExclude;
+import com.github.omenstudio.hydra.annotation.HydraEntity;
+import com.github.omenstudio.hydra.annotation.HydraField;
+import com.github.omenstudio.hydra.annotation.JsonExclude;
 import org.springframework.context.annotation.Lazy;
 
 import javax.persistence.*;

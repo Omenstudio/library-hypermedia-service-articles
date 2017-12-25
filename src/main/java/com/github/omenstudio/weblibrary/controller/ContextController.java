@@ -1,7 +1,7 @@
 package com.github.omenstudio.weblibrary.controller;
 
-import com.github.omenstudio.hydraback.annotation.request.HydraGetRequest;
-import com.github.omenstudio.hydraback.builder.ContextBuilder;
+import com.github.omenstudio.hydra.annotation.request.HydraGetRequest;
+import com.github.omenstudio.hydra.builder.ContextBuilder;
 import com.github.omenstudio.weblibrary.entity.Article;
 import com.github.omenstudio.weblibrary.entity.Author;
 import com.github.omenstudio.weblibrary.entity.Magazine;
