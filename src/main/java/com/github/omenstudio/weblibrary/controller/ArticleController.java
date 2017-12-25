@@ -10,13 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/articles")
+@RequestMapping("/mega-api/article-controller")
 public class ArticleController {
 
     @Autowired
     ArticleRepository articleRepository;
 
-    @HydraGetRequest
+    @HydraGetRequest("/list")
     public Object getArticles() {
         return articleRepository.findAll();
     }
@@ -28,18 +28,18 @@ public class ArticleController {
         return articleRepository.save(article);
     }
 
-    @HydraGetRequest("/{articleId}")
+    @HydraGetRequest("/article-{articleId}")
     public Object getArticle(@PathVariable Long articleId) {
         return articleRepository.findOne(articleId);
     }
 
-    @HydraPutRequest("/{articleId}")
+    @HydraPutRequest("/article-{articleId}")
     public Object changeArticle(@PathVariable Long articleId, @RequestBody Article article) {
         article.setId(articleId);
         return articleRepository.save(article);
     }
 
-    @HydraDeleteRequest("/{articleId}")
+    @HydraDeleteRequest("/article-{articleId}")
     public void deleteArticle(@PathVariable Long articleId) {
         articleRepository.delete(articleId);
     }

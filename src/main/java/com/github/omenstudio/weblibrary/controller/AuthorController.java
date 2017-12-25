@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/authors")
+@RequestMapping("/mega-api/authors-controller")
 public class AuthorController {
 
     @Autowired
     AuthorRepository authorRepository;
 
-    @HydraGetRequest
+    @HydraGetRequest("/list")
     public Object getAuthors() {
         return authorRepository.findAll();
     }
@@ -30,18 +30,18 @@ public class AuthorController {
         return authorRepository.save(author);
     }
 
-    @HydraGetRequest("/{authorId}")
+    @HydraGetRequest("/author-{authorId}")
     public Object getAuthor(@PathVariable Long authorId) {
         return authorRepository.findOne(authorId);
     }
 
-    @HydraPutRequest("/{authorId}")
+    @HydraPutRequest("/author-{authorId}")
     public Object changeAuthor(@PathVariable Long authorId, @RequestBody Author author) {
         author.setId(authorId);
         return authorRepository.save(author);
     }
 
-    @HydraDeleteRequest("/{authorId}")
+    @HydraDeleteRequest("/author-{authorId}")
     public void deleteAuthor(@PathVariable Long authorId) {
         authorRepository.delete(authorId);
     }

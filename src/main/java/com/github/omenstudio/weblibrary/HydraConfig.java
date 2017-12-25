@@ -17,13 +17,15 @@ public class HydraConfig {
     @Bean
     public CommandLineRunner registerApplicationPaths(
             @Value("${hydra.address}")  String url,
-            @Value("${hydra.entrypoint}")  String entrypoint,
-            @Value("${hydra.vocab}")  String vocab
+            @Value("${hydra.api}")  String entrypoint,
+            @Value("${hydra.vocab}")  String vocab,
+            @Value("${hydra.contexts}")  String context
     ) {
         return e -> {
-            HydraUrlResolver.setApplicationAddress(url);
-            HydraUrlResolver.setApiPath(entrypoint);
-            HydraUrlResolver.setVocabPath(vocab);
+            HydraUrlResolver.setServerAddress(url);
+            HydraUrlResolver.setApiAddress(entrypoint);
+            HydraUrlResolver.setVocabAddress(vocab);
+            HydraUrlResolver.setContextsAddress(context);
         };
     }
 

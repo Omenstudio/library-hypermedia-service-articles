@@ -6,7 +6,7 @@ Hypermedia-driven Web API that supports Hydra (http://www.hydra-cg.com/), json-l
 ## Working example
 Working application avaiable at https://library-service-articles.herokuapp.com/ with [Heroku services](https://dashboard.heroku.com).
 
-API endpoint: https://library-service-articles.herokuapp.com/api/
+API endpoint: https://library-service-articles.herokuapp.com/mega-api/
 
 You can also restart DB by running https://library-service-articles.herokuapp.com/resetdb. It will clean all database tables and add some simple entities.
 

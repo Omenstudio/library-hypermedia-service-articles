@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/vocab")
+@RequestMapping("/mega-api/vocab")
 public class VocabController {
 
     @Autowired

@@ -7,18 +7,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/mega-api")
 public class EntryPointController {
 
     @HydraGetRequest
     public Object getEntryPoint() {
         JsonObject res = new JsonObject();
-        res.addProperty("@context", "/api/contexts/EntryPoint");
-        res.addProperty("@id", "/api/");
+        res.addProperty("@context", "/mega-api/context-controller/EntryPoint");
+        res.addProperty("@id", "/mega-api/");
         res.addProperty("@type", "EntryPoint");
-        res.addProperty("articles", "/api/articles/");
-        res.addProperty("authors", "/api/authors/");
-        res.addProperty("magazines", "/api/magazines/");
+        res.addProperty("articles_list", "/mega-api/article-controller/list");
+        res.addProperty("list_of_authors", "/mega-api/authors-controller/list");
+        res.addProperty("magazines_array", "/mega-api/magazines-controller/list");
 
         return res;
     }

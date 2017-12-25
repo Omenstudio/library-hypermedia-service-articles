@@ -19,7 +19,7 @@
   "supportedProperty": [
     {
       "property": {
-        "@id": "vocab:EntryPoint/articles",
+        "@id": "vocab:EntryPoint/articles_list",
         "@type": "hydra:Link",
         "label": "articles",
         "description": "The articles collection",
@@ -46,7 +46,7 @@
     },
     {
       "property": {
-        "@id": "vocab:EntryPoint/authors",
+        "@id": "vocab:EntryPoint/list_of_authors",
         "@type": "hydra:Link",
         "label": "authors",
         "description": "The Authors list",
@@ -73,7 +73,7 @@
     },
     {
       "property": {
-        "@id": "vocab:EntryPoint/magazines",
+        "@id": "vocab:EntryPoint/magazines_array",
         "@type": "hydra:Link",
         "label": "magazines",
         "description": "The Magazines list",

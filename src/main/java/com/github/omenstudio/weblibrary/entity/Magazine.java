@@ -10,7 +10,11 @@ import org.springframework.context.annotation.Lazy;
 import javax.persistence.*;
 import java.util.List;
 
-@HydraEntity("http://schema.org/Book")
+@HydraEntity(
+        value = "http://schema.org/Book",
+        pathToEntity = "/magazines-controller/magazine-",
+        pathToCollection = "/magazines-controller/list"
+)
 @Entity
 @Table(name = "books")
 public class Magazine {

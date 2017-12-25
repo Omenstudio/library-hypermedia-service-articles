@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/magazines")
+@RequestMapping("/mega-api/magazines-controller")
 public class MagazineController {
 
     @Autowired
     MagazineRepository magazineRepository;
 
-    @HydraGetRequest
+    @HydraGetRequest("/list")
     public Object getMagazines() {
         return magazineRepository.findAll();
     }
@@ -30,18 +30,18 @@ public class MagazineController {
         return magazineRepository.save(magazine);
     }
 
-    @HydraGetRequest("/{magazineId}")
+    @HydraGetRequest("/magazine-{magazineId}")
     public Object getMagazine(@PathVariable Long magazineId) {
         return magazineRepository.findOne(magazineId);
     }
 
-    @HydraPutRequest("/{magazineId}")
+    @HydraPutRequest("/magazine-{magazineId}")
     public Object changeMagazine(@PathVariable Long magazineId, @RequestBody Magazine magazine) {
         magazine.setId(magazineId);
         return magazineRepository.save(magazine);
     }
 
-    @HydraDeleteRequest("/{magazineId}")
+    @HydraDeleteRequest("/magazine-{magazineId}")
     public void deleteMagazine(@PathVariable Long magazineId) {
         magazineRepository.delete(magazineId);
     }

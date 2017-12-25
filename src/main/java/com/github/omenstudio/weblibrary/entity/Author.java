@@ -11,7 +11,11 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-@HydraEntity("http://schema.org/Person")
+@HydraEntity(
+        value = "http://schema.org/Person",
+        pathToEntity = "/authors-controller/author-",
+        pathToCollection = "/authors-controller/list"
+)
 @Entity
 @Table(name = "authors")
 public class Author {

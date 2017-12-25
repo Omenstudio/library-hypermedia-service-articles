@@ -15,7 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@HydraEntity("http://schema.org/Article")
+@HydraEntity(
+        value = "http://schema.org/Article",
+        pathToEntity = "/article-controller/article-",
+        pathToCollection = "/article-controller/list"
+)
 @Entity
 @JsonDeserialize(using = ArticleJsonDeserializer.class)
 @Table

@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/contexts")
+@RequestMapping("/mega-api/context-controller")
 public class ContextController {
 
 
     @HydraContextEntryPoint
     @HydraGetRequest("EntryPoint")
     public Object getEntryPointContext() {
-        return new String[] {"articles", "authors", "magazines"};
+        return new String[] {"articles_list", "list_of_authors", "magazines_array"};
     }
 
 
