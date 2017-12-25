@@ -1,8 +1,8 @@
 package com.github.omenstudio.weblibrary.entity;
 
-import com.github.omenstudio.hydra.annotation.HydraEntity;
-import com.github.omenstudio.hydra.annotation.HydraField;
 import com.github.omenstudio.hydra.annotation.JsonExclude;
+import com.github.omenstudio.hydra.annotation.model.HydraEntity;
+import com.github.omenstudio.hydra.annotation.model.HydraField;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.context.annotation.Lazy;
@@ -22,7 +22,7 @@ public class Magazine {
     @Setter
     private Long id;
 
-    @HydraField("http://schema.org/headline")
+    @HydraField(value = "http://schema.org/headline", includeInCollection = true)
     @Column(nullable = false)
     @Getter
     @Setter
@@ -60,8 +60,8 @@ public class Magazine {
     private List<Article> articles;
 
 
-    public Magazine() {
-    }
+    public Magazine() {}
+
 
     public Magazine(String title, String description, Integer edition, Integer numberOfPages, String isbn) {
         this.title = title;
@@ -70,5 +70,4 @@ public class Magazine {
         this.numberOfPages = numberOfPages;
         this.isbn = isbn;
     }
-
 }

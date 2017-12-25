@@ -2,12 +2,13 @@ package com.github.omenstudio.weblibrary.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.github.omenstudio.hydra.annotation.HydraEntity;
-import com.github.omenstudio.hydra.annotation.HydraField;
-import com.github.omenstudio.hydra.annotation.HydraLink;
 import com.github.omenstudio.hydra.annotation.JsonExclude;
+import com.github.omenstudio.hydra.annotation.model.HydraEntity;
+import com.github.omenstudio.hydra.annotation.model.HydraField;
+import com.github.omenstudio.hydra.annotation.model.HydraLink;
 import com.github.omenstudio.weblibrary.utils.ArticleJsonDeserializer;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class Article {
     @Setter
     private Long id;
 
-    @HydraField("http://schema.org/headline")
+    @HydraField(value = "http://schema.org/headline", includeInCollection = true)
     @Column(nullable = false)
     @Getter
     @Setter
@@ -57,7 +58,7 @@ public class Article {
     @Setter
     private Integer wordCount;
 
-    @HydraLink("http://schema.org/Person")
+    @HydraLink(value = "http://schema.org/Person", includeInCollection = true)
     @JsonIgnore
     @ManyToMany
     @Getter

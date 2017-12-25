@@ -12,7 +12,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @Configuration
 @EnableAspectJAutoProxy
 @ComponentScan("com.github.omenstudio.hydra.*")
-public class AppConfig {
+public class HydraConfig {
 
     @Bean
     public CommandLineRunner registerApplicationPaths(

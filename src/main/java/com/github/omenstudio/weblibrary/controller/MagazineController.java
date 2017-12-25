@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/magazines/")
+@RequestMapping("/api/magazines")
 public class MagazineController {
 
     @Autowired

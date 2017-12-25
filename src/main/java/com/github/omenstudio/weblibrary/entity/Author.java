@@ -1,8 +1,8 @@
 package com.github.omenstudio.weblibrary.entity;
 
-import com.github.omenstudio.hydra.annotation.HydraEntity;
-import com.github.omenstudio.hydra.annotation.HydraField;
 import com.github.omenstudio.hydra.annotation.JsonExclude;
+import com.github.omenstudio.hydra.annotation.model.HydraEntity;
+import com.github.omenstudio.hydra.annotation.model.HydraField;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.context.annotation.Lazy;
@@ -23,7 +23,7 @@ public class Author {
     @Setter
     private Long id;
 
-    @HydraField("http://schema.org/name")
+    @HydraField(value = "http://schema.org/name", includeInCollection = true)
     @Column(nullable = false)
     @Getter
     @Setter

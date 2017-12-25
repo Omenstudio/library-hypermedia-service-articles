@@ -1,7 +1,9 @@
 package com.github.omenstudio.weblibrary.controller;
 
+import com.github.omenstudio.hydra.annotation.context.HydraContextClass;
+import com.github.omenstudio.hydra.annotation.context.HydraContextCollection;
+import com.github.omenstudio.hydra.annotation.context.HydraContextEntryPoint;
 import com.github.omenstudio.hydra.annotation.request.HydraGetRequest;
-import com.github.omenstudio.hydra.builder.ContextBuilder;
 import com.github.omenstudio.weblibrary.entity.Article;
 import com.github.omenstudio.weblibrary.entity.Author;
 import com.github.omenstudio.weblibrary.entity.Magazine;
@@ -14,38 +16,42 @@ import org.springframework.web.bind.annotation.RestController;
 public class ContextController {
 
 
+    @HydraContextEntryPoint
     @HydraGetRequest("EntryPoint")
     public Object getEntryPointContext() {
-        return ContextBuilder.buildForEntryPoint("articles", "authors", "magazines");
+        return new String[] {"articles", "authors", "magazines"};
     }
 
+    @HydraContextClass
     @HydraGetRequest("Article")
     public Object getArticleContext() {
-        return ContextBuilder.buildForClass(Article.class);
+        return Article.class;
     }
 
+    @HydraContextCollection
     @HydraGetRequest("ArticleCollection")
     public Object getArticleCollection() {
-        return ContextBuilder.buildForCollection(Article.class);
+        return Article.class;
     }
 
+    @HydraContextCollection
     @HydraGetRequest("Author")
     public Object getAuthorContext() {
-        return ContextBuilder.buildForClass(Author.class);
+        return Author.class;
     }
 
     @HydraGetRequest("AuthorCollection")
     public Object getAuthorCollection() {
-        return ContextBuilder.buildForCollection(Author.class);
+        return Author.class;
     }
 
     @HydraGetRequest("Magazine")
     public Object getMagazineContext() {
-        return ContextBuilder.buildForClass(Magazine.class);
+        return Magazine.class;
     }
 
     @HydraGetRequest("MagazineCollection")
     public Object getMagazineCollection() {
-        return ContextBuilder.buildForCollection(Magazine.class);
+        return Magazine.class;
     }
 }
