@@ -21,7 +21,7 @@ public class ArticleController {
         return articleRepository.findAll();
     }
 
-    @HydraPostRequest
+    @HydraPostRequest("/list")
     public Object createArticle(@RequestBody Article article,
                              @RequestParam(required = false) String author,
                              @RequestParam(required = false) String publisher) {

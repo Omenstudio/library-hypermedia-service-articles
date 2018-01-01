@@ -88,8 +88,8 @@ public class ArticleJsonDeserializer extends JsonDeserializer<Article> {
         if (parent.has(title) && !parent.get(title).isNull()) {
             return Arrays.stream(parent.get(title).asText().split(","))
                     .map(String::trim)
+                    .filter(e -> !e.isEmpty())
                     .map(Long::parseLong)
-                    .filter(Objects::nonNull)
                     .collect(Collectors.toList());
         }
 

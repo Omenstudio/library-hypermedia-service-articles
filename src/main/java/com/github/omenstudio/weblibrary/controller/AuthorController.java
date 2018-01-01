@@ -25,7 +25,7 @@ public class AuthorController {
         return authorRepository.findAll();
     }
 
-    @HydraPostRequest
+    @HydraPostRequest("/list")
     public Object createAuthor(@RequestBody Author author) {
         return authorRepository.save(author);
     }

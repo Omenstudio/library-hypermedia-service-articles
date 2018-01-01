@@ -25,7 +25,7 @@ public class MagazineController {
         return magazineRepository.findAll();
     }
 
-    @HydraPostRequest
+    @HydraPostRequest("/list")
     public Object createMagazine(@RequestBody Magazine magazine) {
         return magazineRepository.save(magazine);
     }

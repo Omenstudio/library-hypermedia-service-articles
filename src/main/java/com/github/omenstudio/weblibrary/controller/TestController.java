@@ -56,11 +56,11 @@ public class TestController {
 
         // Magazines
         Magazine[] magazines = new Magazine[] {
-                new Magazine("Modern science", "descr", 2, 1024, "978-5-9614-6244-9"),
-                new Magazine("Blockchain magazine", "descr", 6, 542, "978-5-699-88634-0"),
-                new Magazine("Info business", "descr", 13, 123, "978-5-699-87785-0"),
-                new Magazine("Space anomalies", "descr", 25, 295, "978-5-9614-6406-1"),
-                new Magazine("Shit happens magazine #1", "descr", 1, 269, "978-5-91671-563-7"),
+                new Magazine("Modern science", "Magazine about modern science, innovations and inventions", 2, 1024, "978-5-9614-6244-9"),
+                new Magazine("Blockchain magazine", "Magazine about blockchain, bitcoin, ethereum, BTC cash, etc.", 6, 542, "978-5-699-88634-0"),
+                new Magazine("Info business", "Magazine about: \"How to earn a lot of money without working!\"", 13, 123, "978-5-699-87785-0"),
+                new Magazine("Space anomalies", "Space, black holes, stars - are very interesting themes. It is magazine about.", 25, 295, "978-5-9614-6406-1"),
+                new Magazine("Shit happens magazine #1", "Shit happens. Just shit. Just happens.", 1, 269, "978-5-91671-563-7"),
         };
 
         // Articles
