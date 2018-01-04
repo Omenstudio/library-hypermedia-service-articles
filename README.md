@@ -4,7 +4,8 @@ Hypermedia-driven Web API that supports Hydra (http://www.hydra-cg.com/), json-l
 
 
 ## Working example
-Working application avaiable at https://library-service-articles.herokuapp.com/ with [Heroku services](https://dashboard.heroku.com).
+
+Server runned on (Heroku|https://ya.ru)
 
 API endpoint: https://library-service-articles.herokuapp.com/mega-api/
 
@@ -14,23 +15,22 @@ Server on Heroku shotdowns after 30 minutes of inactivity, so you can open https
 
 
 ## Getting started
-You need locally installed Java 8 SDK, Postgres 9+ (or other DBMS), Maven 3+.
+You need locally installed Java 8 SDK, Postgres 9+ (or other DBMS) and Maven 3+.
 
 1. `git clone https://github.com/Omenstudio/library-hypermedia-service-articles.git`
 2. `cd library-hypermedia-service-articles/`
-3. `mvn install`
-4. `java -jar target/service-articles-1.0.0.jar`
+3. `mvn install && java -jar target/service-articles-1.0.0.jar`
+4. or just `mvn spring-boot:run`
 
 Server will be started at localhost and you can access API.
 
 Project use Spring (Core, Boot, MVC, Data JPA), Hibernate, AspectJ, Json-ld.
 
-To customize application you need:
-1. Change DB connection in `application.properties`
-2. Change server url in `src/main/java/com/github/omenstudio/weblibrary/AppConfig.java`
+To customize application you need to change DB connection and server url in `resources/application.properties`
 
 
 ## See also
 - Another hypermedia web API service, which also use Hydra and Json-ld: https://github.com/Omenstudio/library-hypermedia-service-books
 - WEB UI application based on HydraConsole, which allow you work with hypermedia services: https://github.com/Omenstudio/hypermedia-library-web-ui
 
+Working application: https://library-service-articles.herokuapp.com/mega-api/
