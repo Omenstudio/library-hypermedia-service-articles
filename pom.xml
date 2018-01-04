@@ -83,13 +83,13 @@
         <dependency>
             <groupId>com.github.Omenstudio</groupId>
             <artifactId>hydra-microframework</artifactId>
-            <version>1.1</version>
+            <version>1.2</version>
         </dependency>
         <!-- Uncomment for local framework sources usage -->
         <!--<dependency>-->
             <!--<groupId>com.github.omenstudio.hydra</groupId>-->
             <!--<artifactId>hydra-microframework</artifactId>-->
-            <!--<version>1.1</version>-->
+            <!--<version>1.2</version>-->
         <!--</dependency>-->
 
     </dependencies>
