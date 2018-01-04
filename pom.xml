@@ -6,7 +6,7 @@
 
     <groupId>com.github.omenstudio.weblibrary</groupId>
     <artifactId>service-articles</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <parent>
@@ -72,21 +72,18 @@
             <scope>provided</scope>
         </dependency>
 
-
-
         <!-- My custom microframework for work with hypermedia driven API with HYDRA vocabs -->
-        <!--<dependency>-->
-            <!--<groupId>com.github.Omenstudio</groupId>-->
-            <!--<artifactId>hydra-microframework</artifactId>-->
-            <!--<version>1.0</version>-->
-        <!--</dependency>-->
-        <!-- Uncomment for local framework sources usage -->
         <dependency>
-            <groupId>com.github.omenstudio.hydra</groupId>
+            <groupId>com.github.Omenstudio</groupId>
             <artifactId>hydra-microframework</artifactId>
             <version>1.1</version>
-            <!--<scope>compile</scope>-->
         </dependency>
+        <!-- Uncomment for local framework sources usage -->
+        <!--<dependency>-->
+            <!--<groupId>com.github.omenstudio.hydra</groupId>-->
+            <!--<artifactId>hydra-microframework</artifactId>-->
+            <!--<version>1.1</version>-->
+        <!--</dependency>-->
 
     </dependencies>
 
