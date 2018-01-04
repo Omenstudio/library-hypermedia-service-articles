@@ -30,6 +30,7 @@ To customize application you need to change DB connection and server url in `res
 
 
 ## See also
+- Hypermedia micro-framework, which was used in the service: https://github.com/Omenstudio/hydra-microframework
 - Another hypermedia web API service, which also use Hydra and Json-ld: https://github.com/Omenstudio/library-hypermedia-service-books
 - WEB UI application based on HydraConsole, which allow you work with hypermedia services: https://github.com/Omenstudio/hypermedia-library-web-ui
 
