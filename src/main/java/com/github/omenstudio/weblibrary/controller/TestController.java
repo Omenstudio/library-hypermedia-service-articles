@@ -6,10 +6,13 @@ import com.github.omenstudio.weblibrary.entity.Magazine;
 import com.github.omenstudio.weblibrary.repository.ArticleRepository;
 import com.github.omenstudio.weblibrary.repository.AuthorRepository;
 import com.github.omenstudio.weblibrary.repository.MagazineRepository;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RestController
@@ -32,6 +35,7 @@ public class TestController {
 
 
     @GetMapping("/resetdb")
+    @SneakyThrows
     public void resetDb() {
         // Clear the database
         articleRepository.deleteAll();
@@ -40,18 +44,19 @@ public class TestController {
 
         // Randomize
         Random r = new Random();
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
         // Authors
         List<Author> authors = Arrays.asList(
-                new Author("Tarabanko Kirill", new Date(1994, 1, 13)),
-                new Author("Agarkov Nikolay", new Date(1991, 2, 27)),
-                new Author("Lipuntsov Ilya", new Date(1998, 3, 2)),
-                new Author("Erman Nikita", new Date(2000, 4, 6)),
-                new Author("Svetlana Makarova", new Date(2003, 5, 28)),
-                new Author("Vitaly Kostarev", new Date(1997, 6, 30)),
-                new Author("Pupkin Vasily", new Date(1995, 7, 29)),
-                new Author("Makarutin Mihail", new Date(1992, 8, 16)),
-                new Author("Druzhinin Vova", new Date(1986, 9, 19))
+                new Author("Tarabanko Kirill", format.parse("1994-1-13")),
+                new Author("Agarkov Nikolay", format.parse("1991-2-27")),
+                new Author("Lipuntsov Ilya", format.parse("1998-3-2")),
+                new Author("Erman Nikita", format.parse("2000-4-6")),
+                new Author("Svetlana Makarova", format.parse("2003-5-28")),
+                new Author("Vitaly Kostarev", format.parse("1997-6-30")),
+                new Author("Pupkin Vasily", format.parse("1995-7-29")),
+                new Author("Makarutin Mihail", format.parse("1992-8-16")),
+                new Author("Druzhinin Vova",  format.parse("1986-9-19"))
         );
 
         // Magazines
